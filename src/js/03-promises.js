@@ -1,3 +1,5 @@
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 const inputDelay = document.querySelector('[name=delay]');
 const inputStep = document.querySelector('[name=step]');
 const inputAmount = document.querySelector('[name=amount]');
@@ -20,13 +22,13 @@ function submitForm(delay, step, amount) {
       () =>
         createPromise(delay, step, amount)
           .then(v => {
-            console.log(
-              `Fullfilled promice ${i} in ${i * step + delay} mseconds`
+            Notify.success(
+              `Fullfilled promise ${i} in ${i * step + delay} mseconds`
             );
           })
           .catch(() => {
-            console.log(
-              `Rejected promice ${i} in ${i * step + delay} mseconds`
+            Notify.failure(
+              `Rejected promise ${i} in ${i * step + delay} mseconds`
             );
           }),
       i * step + delay
