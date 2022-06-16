@@ -21,7 +21,7 @@ function submitForm(delay, step, amount) {
     setTimeout(
       () =>
         createPromise(delay, step, amount)
-          .then(v => {
+          .then(() => {
             Notify.success(
               `Fullfilled promise ${i} in ${i * step + delay} mseconds`
             );
@@ -38,6 +38,6 @@ function submitForm(delay, step, amount) {
 
 sbmtBtn.addEventListener('submit', e => {
   e.preventDefault();
-  submitForm(1000, inputStep.value, inputAmount.value); /// <---- Ось тут проблема. Я поставив першу затримку 1000мс, тому як параметр inputDelay.value функцією не зчитується, хоча вводиться і записується корректно
-  console.log(inputDelay.value);
+  submitForm(Number(inputDelay.value), inputStep.value, inputAmount.value);
+  console.log(typeof Number(inputDelay.value));
 });
