@@ -85,8 +85,8 @@ function onStart() {
 }
 
 function counting() {
-  timerId = setInterval(onStart, 1000);
   startBtn.disabled = true;
+  timerId = setInterval(onStart, 1000);
 }
 
 startBtn.addEventListener('click', () => {
