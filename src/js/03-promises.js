@@ -38,6 +38,7 @@ function submitForm(delay, step, amount) {
 
 sbmtBtn.addEventListener('submit', e => {
   e.preventDefault();
+  console.log(e.target);
   submitForm(Number(inputDelay.value), inputStep.value, inputAmount.value);
   console.log(typeof Number(inputDelay.value));
 });
